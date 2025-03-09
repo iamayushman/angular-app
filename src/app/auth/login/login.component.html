@@ -1,0 +1,42 @@
+<h1>First Todo : {{(todo$ | async )?.title}}</h1>
+
+<h2>Count {{ (users$ | async)?.length }}</h2>
+<mat-grid-list cols="8" rowHeight="200">
+  @for(user of users$ | async; track user.id){
+  <mat-grid-tile [colspan]="1" [rowspan]="2">
+    <mat-card style="width: 95%;">
+      <mat-card-header>
+        <mat-card-title>{{user.id}}. {{user.name}}</mat-card-title>
+        <mat-card-subtitle>{{user.email}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <pre>
+{{user.address | json}}
+</pre>
+      </mat-card-content>
+      <mat-card-footer style="padding: 10px;">
+        <button mat-button>Call</button>
+        <button mat-button>Email</button>
+      </mat-card-footer>
+    </mat-card>
+  </mat-grid-tile>
+  }
+
+</mat-grid-list>
+<!-- @for(todo of todo$ | async; track todo.id){
+  <mat-card>
+    <mat-card-header>
+      <button mat-button>
+      </button>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-card-title>{{todo.id}}. {{todo.title}}</mat-card-title>
+      <mat-card-subtitle>Card Subtitle</mat-card-subtitle>
+    </mat-card-content>
+    <mat-card-footer>
+      <button mat-button></button>
+    </mat-card-footer>
+  </mat-card>
+} -->
+
+<p>login works!</p>
